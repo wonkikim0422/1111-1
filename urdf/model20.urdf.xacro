@@ -1,0 +1,1027 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com)
+     Commit Version: 1.5.1-0-g916b5db  Build Version: 1.5.7152.31018
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+     <robot
+       name="model20" xmlns:xacro="http://ros.org/wiki/xacro">
+       <xacro:arg name="laser_visual"  default="false"/>
+       <xacro:arg name="camera_visual" default="false"/>
+       <xacro:arg name="imu_visual"    default="false"/>
+
+       <link name="base_footprint"/>
+
+       <joint name="base_joint" type="fixed">
+         <parent link="base_footprint"/>
+         <child link="base_link" />
+         <origin xyz="0 0 0.010" rpy="0 0 0"/>
+       </joint>
+
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.0925505753581471 0.0774378875267896 0.0428958855617295"
+        rpy="0 0 0" />
+      <mass
+        value="3.2296162277104" />
+      <inertia
+        ixx="0.00580312787317233"
+        ixy="1.93643410747136E-06"
+        ixz="7.56620702253013E-07"
+        iyy="0.00722042643267797"
+        iyz="3.86677335642941E-07"
+        izz="0.0125136556433194" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://model20/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://model20/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="left_front_wheel_suspension">
+    <inertial>
+      <origin
+        xyz="-0.00786753377996491 -0.0155948984609842 0.0232556468762561"
+        rpy="0 0 0" />
+      <mass
+        value="0.0651133753252895" />
+      <inertia
+        ixx="1.48802654908116E-05"
+        ixy="1.64845451975804E-08"
+        ixz="-1.56420031463122E-07"
+        iyy="1.75245555055195E-05"
+        iyz="-2.96403540336096E-09"
+        izz="8.01010024686586E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://model20/meshes/left_front_wheel_suspension.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://model20/meshes/left_front_wheel_suspension.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_front_wheel_suspension_joint"
+    type="prismatic">
+    <origin
+      xyz="-0.019998715602551 0.155491237481961 -0.0309978167969167"
+      rpy="1.5707963267949 0 -1.5707963267949" />
+    <parent
+      link="base_link" />
+    <child
+      link="left_front_wheel_suspension" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="left_front_wheel">
+    <inertial>
+      <origin
+        xyz="0.0158399891826273 -4.59981459866032E-09 7.99690621500204E-08"
+        rpy="0 0 0" />
+      <mass
+        value="0.22822169800504" />
+      <inertia
+        ixx="0.000789211576324215"
+        ixy="-1.09995507949696E-10"
+        ixz="1.91230261060066E-09"
+        iyy="0.000410429434291453"
+        iyz="-5.55665471860083E-16"
+        izz="0.000410429434301075" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://model20/meshes/left_front_wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://model20/meshes/left_front_wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_front_wheel_joint"
+    type="continuous">
+    <origin
+      xyz="-0.0197601403859578 -0.0217865728752538 0.00999990007507129"
+      rpy="3.08413603591628 0 3.14159265358979" />
+    <parent
+      link="left_front_wheel_suspension" />
+    <child
+      link="left_front_wheel" />
+    <axis
+      xyz="0.999999999987214 0 0" />
+    <limit
+      effort="3.1"
+      velocity="7" />
+  </joint>
+  <link
+    name="right_front_wheel_suspension">
+    <inertial>
+      <origin
+        xyz="-0.00415434378457435 -0.0156302499401892 0.023255686661272"
+        rpy="0 0 0" />
+      <mass
+        value="0.0651133753251555" />
+      <inertia
+        ixx="1.48802639086072E-05"
+        ixy="1.64845302056301E-08"
+        ixz="1.56454773175217E-07"
+        iyy="1.75245555054544E-05"
+        iyz="2.96411876510216E-09"
+        izz="8.01010182899685E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://model20/meshes/right_front_wheel_suspension.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://model20/meshes/right_front_wheel_suspension.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_front_wheel_suspension_joint"
+    type="prismatic">
+    <origin
+      xyz="-0.019998685205965 -0.0145086967784139 -0.0309978167969166"
+      rpy="1.5707963267949 0 -1.5707963267949" />
+    <parent
+      link="base_link" />
+    <child
+      link="right_front_wheel_suspension" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="right_front_wheel">
+    <inertial>
+      <origin
+        xyz="0.015839199018542 1.11022302462516E-16 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.22822169800504" />
+      <inertia
+        ixx="0.000789211576333899"
+        ixy="-3.38234667441246E-20"
+        ixz="5.30494838309806E-21"
+        iyy="0.000410429434291421"
+        iyz="-3.04931861011548E-19"
+        izz="0.00041042943429142" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://model20/meshes/right_front_wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://model20/meshes/right_front_wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_front_wheel_joint"
+    type="continuous">
+    <origin
+      xyz="0.00773912001850283 -0.0217849999999998 0.0100000000000001"
+      rpy="0.162600051915931 0 0" />
+    <parent
+      link="right_front_wheel_suspension" />
+    <child
+      link="right_front_wheel" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      effort="3.1"
+      velocity="7" />
+  </joint>
+  <link
+    name="camera">
+    <inertial>
+      <origin
+        xyz="0.000445525429401739 -1.1063488044194E-05 0.00129821842499728"
+        rpy="0 0 0" />
+      <mass
+        value="0.0436119955028422" />
+      <inertia
+        ixx="2.35707059694687E-05"
+        ixy="-1.01847086177763E-09"
+        ixz="2.17583930111272E-08"
+        iyy="4.29479039927907E-06"
+        iyz="-8.85046657821899E-10"
+        izz="2.21058152194316E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://model20/meshes/camera.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://model20/meshes/camera.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="camera"
+    type="fixed">
+    <origin
+      xyz="0.00436446720302103 0.0765106026545475 0.0890002048500908"
+      rpy="0 0.40142572795869 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="camera" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="camera2">
+    <inertial>
+      <origin
+        xyz="0.000445525266833613 -1.10639236487395E-05 0.00129821764747488"
+        rpy="0 0 0" />
+      <mass
+        value="0.0436119958611831" />
+      <inertia
+        ixx="2.35707063464805E-05"
+        ixy="-1.01836626404867E-09"
+        ixz="2.17587007085052E-08"
+        iyy="4.29479063311557E-06"
+        iyz="-8.85041666160431E-10"
+        izz="2.21058153836914E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://model20/meshes/camera2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://model20/meshes/camera2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="camera2"
+    type="fixed">
+    <origin
+      xyz="0.000727509507186641 0.0765106026545475 0.154749082523395"
+      rpy="0 0.174532925199424 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="camera2" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="lidar">
+    <inertial>
+      <origin
+        xyz="-0.00868778989475805 -0.00242014065371566 -0.0287648859066119"
+        rpy="0 0 0" />
+      <mass
+        value="0.0730845706063433" />
+      <inertia
+        ixx="1.95808756057989E-05"
+        ixy="-1.03933750894077E-07"
+        ixz="4.28391241178119E-07"
+        iyy="2.41250086761113E-05"
+        iyz="-9.4271002259947E-09"
+        izz="4.14184522411216E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://model20/meshes/lidar.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://model20/meshes/lidar.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="lidar_joint"
+    type="fixed">
+    <origin
+      xyz="-0.0642592027859291 0.0687050562666345 0.223497816796912"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="lidar" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="imu">
+    <inertial>
+      <origin
+        xyz="0 1.38777878078145E-17 0.00250000000000002"
+        rpy="0 0 0" />
+      <mass
+        value="0.000510000000000001" />
+      <inertia
+        ixx="5.31250000000002E-09"
+        ixy="-7.37257477290141E-26"
+        ixz="-1.63010995363758E-40"
+        iyy="5.31250000000002E-09"
+        iyz="-5.52943107967612E-26"
+        izz="8.50000000000004E-09" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://model20/meshes/imu.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://model20/meshes/imu.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="imu"
+    type="fixed">
+    <origin
+      xyz="-0.0950000000000001 0.117752824450965 0.169997816796917"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="imu" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="left_rear_wheel_suspension">
+    <inertial>
+      <origin
+        xyz="0.0115201581520793 0.0155948984609685 -0.00185653619692297"
+        rpy="0 0 0" />
+      <mass
+        value="0.0651133753251553" />
+      <inertia
+        ixx="8.01010182899682E-06"
+        ixy="2.96411876510208E-09"
+        ixz="-1.56454773175199E-07"
+        iyy="1.75245555054544E-05"
+        iyz="-1.64845302056277E-08"
+        izz="1.48802639086072E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://model20/meshes/left_rear_wheel_suspension.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://model20/meshes/left_rear_wheel_suspension.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_rear_wheel_suspension_joint"
+    type="prismatic">
+    <origin
+      xyz="-0.293 0.1615 -0.030998"
+      rpy="-1.5708 0 3.1416" />
+    <parent
+      link="base_link" />
+    <child
+      link="left_rear_wheel_suspension" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="left_rear_wheel">
+    <inertial>
+      <origin
+        xyz="0.015839199018542 1.11022302462516E-16 2.77555756156289E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.22822169800504" />
+      <inertia
+        ixx="0.000789211576333901"
+        ixy="1.79758483737316E-21"
+        ixz="-8.37010578246198E-21"
+        iyy="0.000410429434291422"
+        iyz="-3.25260651745651E-19"
+        izz="0.00041042943429142" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://model20/meshes/left_rear_wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://model20/meshes/left_rear_wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_rear_wheel_joint"
+    type="continuous">
+    <origin
+      xyz="-0.001 0.021787 -0.01375"
+      rpy="1.9626 1.5708 0" />
+    <parent
+      link="left_rear_wheel_suspension" />
+    <child
+      link="left_rear_wheel" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+  <link
+    name="right_rear_wheel_suspension">
+    <inertial>
+      <origin
+        xyz="-0.0156302499401892 -0.0115201581520791 -0.00185653619692287"
+        rpy="0 0 0" />
+      <mass
+        value="0.0651133753251555" />
+      <inertia
+        ixx="1.75245555054544E-05"
+        ixy="-2.96411876510898E-09"
+        ixz="-1.64845302056281E-08"
+        iyy="8.01010182899684E-06"
+        iyz="1.56454773175206E-07"
+        izz="1.48802639086072E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://model20/meshes/right_rear_wheel_suspension.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.298039215686275 0.298039215686275 0.298039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://model20/meshes/right_rear_wheel_suspension.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_rear_wheel_suspension_joint"
+    type="prismatic">
+    <origin
+      xyz="-0.293 -0.0084978 -0.030998"
+      rpy="1.5708 -1.5708 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="right_rear_wheel_suspension" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="right_rear_wheel">
+    <inertial>
+      <origin
+        xyz="0.015839199018542 9.71445146547012E-17 1.11022302462516E-16"
+        rpy="0 0 0" />
+      <mass
+        value="0.22822169800504" />
+      <inertia
+        ixx="0.000789211576333899"
+        ixy="2.69782049116958E-21"
+        ixz="8.51375101202783E-21"
+        iyy="0.000410429434291421"
+        iyz="-3.10490514727905E-19"
+        izz="0.00041042943429142" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://model20/meshes/right_rear_wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://model20/meshes/right_rear_wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_rear_wheel_joint"
+    type="continuous">
+    <origin
+      xyz="-0.021785 0.001 -0.01375"
+      rpy="1.5708 1.5708 0" />
+    <parent
+      link="right_rear_wheel_suspension" />
+    <child
+      link="right_rear_wheel" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+
+  <transmission name="wheel_front_left_transmission">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="left_front_wheel_joint">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="wheel_front_left_motor">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+  </transmission>
+
+  <transmission name="wheel_front_right_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="right_front_wheel_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="wheel_front_right_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="wheel_rear_left_transmission">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="left_rear_wheel_joint">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="wheel_rear_left_motor">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+
+  <transmission name="wheel_rear_right_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="right_rear_wheel_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="wheel_rear_right_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+<transmission name="left_front_wheel_suspension_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="left_front_wheel_suspension_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="left_suspension_actuator">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+    <transmission name="left_rear_wheel_suspension_transmission">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="left_rear_wheel_suspension_joint">
+          <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="left_suspension_actuator">
+          <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+          <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+      </transmission>
+
+      <transmission name="right_front_wheel_suspension_transmission">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="right_front_wheel_suspension_joint">
+          <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="right_suspension_actuator">
+          <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+          <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+      </transmission>
+
+      <transmission name="right_rear_wheel_suspension_transmission">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="right_rear_wheel_suspension_joint">
+          <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="right_suspension_actuator">
+          <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+          <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+      </transmission>
+
+      <gazebo>
+       <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+         <robotNamespace>/model20</robotNamespace>
+         <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+       </plugin>
+     </gazebo>
+    <gazebo reference="base_link">
+       <mu1>1.0</mu1>
+       <mu2>1.0</mu2>
+       <material>Gazebo/Orange</material>
+     </gazebo>
+
+     <gazebo reference="left_front_wheel">
+         <mu1>1.0</mu1>
+         <mu2>1.0</mu2>
+         <fdir1>1 0 0</fdir1>
+         <material>Gazebo/FlatBlack</material>
+       </gazebo>
+
+       <gazebo reference="right_front_wheel">
+          <mu1>1.0</mu1>
+         <mu2>1.0</mu2>
+         <fdir1>1 0 0</fdir1>
+         <material>Gazebo/FlatBlack</material>
+       </gazebo>
+
+     <gazebo reference="left_rear_wheel">
+          <mu1>1.0</mu1>
+         <mu2>1.0</mu2>
+         <fdir1>1 0 0</fdir1>
+         <material>Gazebo/FlatBlack</material>
+       </gazebo>
+
+       <gazebo reference="right_rear_wheel">
+         <mu1>1.0</mu1>
+         <mu2>1.0</mu2>
+         <fdir1>1 0 0</fdir1>
+         <material>Gazebo/FlatBlack</material>
+       </gazebo>
+
+       <gazebo reference="left_front_wheel_suspension">
+         <mu1>0.2</mu1>
+         <mu2>0.2</mu2>
+         <kd>50000.0</kd>
+         <kp>10.0</kp>
+         <material>Gazebo/Red</material>
+       </gazebo>
+       <gazebo reference="right_front_wheel_suspension">
+         <mu1>0.2</mu1>
+         <mu2>0.2</mu2>
+         <kd>50000.0</kd>
+         <kp>10.0</kp>
+         <material>Gazebo/Red</material>
+       </gazebo>
+        <gazebo reference="left_rear_wheel_suspension">
+         <mu1>0.2</mu1>
+         <mu2>0.2</mu2>
+         <kd>50000.0</kd>
+         <kp>10.0</kp>
+         <material>Gazebo/Red</material>
+       </gazebo>
+       <gazebo reference="right_rear_wheel_suspension">
+         <mu1>0.2</mu1>
+         <mu2>0.2</mu2>
+         <kd>50000.0</kd>
+         <kp>10.0</kp>
+         <material>Gazebo/Red</material>
+       </gazebo>
+
+       <gazebo reference="camera">
+         <material>Gazebo/FlatBlack</material>
+       </gazebo>
+
+       <gazebo reference="camera2">
+         <material>Gazebo/Blue</material>
+       </gazebo>
+
+       <gazebo reference="camera">
+         <sensor type="depth" name="realsense_R200">
+           <always_on>true</always_on>
+           <visualize>$(arg camera_visual)</visualize>
+           <camera>
+               <horizontal_fov>1.3439</horizontal_fov>
+               <image>
+                   <width>1920</width>
+                   <height>1080</height>
+                   <format>R8G8B8</format>
+               </image>
+               <depth_camera></depth_camera>
+               <clip>
+                   <near>0.03</near>
+                   <far>100</far>
+               </clip>
+           </camera>
+           <plugin name="camera_controller" filename="libgazebo_ros_openni_kinect.so">
+             <baseline>0.2</baseline>
+             <alwaysOn>true</alwaysOn>
+             <updateRate>30.0</updateRate>
+             <cameraName>camera</cameraName>
+             <frameName>camera_rgb_optical_frame</frameName>
+             <imageTopicName>rgb/image_raw</imageTopicName>
+             <depthImageTopicName>depth/image_raw</depthImageTopicName>
+             <pointCloudTopicName>depth/points</pointCloudTopicName>
+             <cameraInfoTopicName>rgb/camera_info</cameraInfoTopicName>
+             <depthImageCameraInfoTopicName>depth/camera_info</depthImageCameraInfoTopicName>
+             <pointCloudCutoff>0.4</pointCloudCutoff>
+                 <hackBaseline>0.07</hackBaseline>
+                 <distortionK1>0.0</distortionK1>
+                 <distortionK2>0.0</distortionK2>
+                 <distortionK3>0.0</distortionK3>
+                 <distortionT1>0.0</distortionT1>
+                 <distortionT2>0.0</distortionT2>
+             <CxPrime>0.0</CxPrime>
+             <Cx>0.0</Cx>
+             <Cy>0.0</Cy>
+             <focalLength>0</focalLength>
+             <hackBaseline>0</hackBaseline>
+           </plugin>
+         </sensor>
+       </gazebo>
+
+         <gazebo reference="camera2">
+         <sensor type="depth" name="realsense_R200">
+           <always_on>true</always_on>
+           <visualize>$(arg camera_visual)</visualize>
+           <camera>
+               <horizontal_fov>1.3439</horizontal_fov>
+               <image>
+                   <width>1920</width>
+                   <height>1080</height>
+                   <format>R8G8B8</format>
+               </image>
+               <depth_camera></depth_camera>
+               <clip>
+                   <near>0.03</near>
+                   <far>100</far>
+               </clip>
+           </camera>
+           <plugin name="camera_controller" filename="libgazebo_ros_openni_kinect.so">
+             <baseline>0.2</baseline>
+             <alwaysOn>true</alwaysOn>
+             <updateRate>30.0</updateRate>
+             <cameraName>camera2</cameraName>
+             <frameName>camera_rgb_optical_frame</frameName>
+             <imageTopicName>rgb/image_raw</imageTopicName>
+             <depthImageTopicName>depth/image_raw</depthImageTopicName>
+             <pointCloudTopicName>depth/points</pointCloudTopicName>
+             <cameraInfoTopicName>rgb/camera_info</cameraInfoTopicName>
+             <depthImageCameraInfoTopicName>depth/camera_info</depthImageCameraInfoTopicName>
+             <pointCloudCutoff>0.4</pointCloudCutoff>
+                 <hackBaseline>0.07</hackBaseline>
+                 <distortionK1>0.0</distortionK1>
+                 <distortionK2>0.0</distortionK2>
+                 <distortionK3>0.0</distortionK3>
+                 <distortionT1>0.0</distortionT1>
+                 <distortionT2>0.0</distortionT2>
+             <CxPrime>0.0</CxPrime>
+             <Cx>0.0</Cx>
+             <Cy>0.0</Cy>
+             <focalLength>0</focalLength>
+             <hackBaseline>0</hackBaseline>
+           </plugin>
+         </sensor>
+       </gazebo>
+
+     <gazebo reference="lidar">
+         <material>Gazebo/FlatBlack</material>
+         <sensor type="ray" name="lds_lfcd_sensor">
+           <pose>0 0 0 0 0 0</pose>
+           <visualize>$(arg laser_visual)</visualize>
+           <update_rate>5</update_rate>
+           <ray>
+             <scan>
+               <horizontal>
+                 <samples>360</samples>
+                 <resolution>1</resolution>
+                 <min_angle>0.0</min_angle>
+                 <max_angle>6.28319</max_angle>
+               </horizontal>
+             </scan>
+             <range>
+               <min>0.120</min>
+               <max>3.5</max>
+               <resolution>0.015</resolution>
+             </range>
+             <noise>
+               <type>gaussian</type>
+               <mean>0.0</mean>
+               <stddev>0.01</stddev>
+             </noise>
+           </ray>
+           <plugin name="gazebo_ros_lds_lfcd_controller" filename="libgazebo_ros_laser.so">
+             <topicName>scan</topicName>
+             <frameName>base_scan</frameName>
+           </plugin>
+         </sensor>
+       </gazebo>
+
+       <gazebo reference="imu">
+         <sensor type="imu" name="imu">
+           <always_on>true</always_on>
+           <visualize>$(arg imu_visual)</visualize>
+         </sensor>
+         <material>Gazebo/Grey</material>
+       </gazebo>
+       <gazebo>
+         <plugin name="imu_plugin" filename="libgazebo_ros_imu.so">
+           <alwaysOn>true</alwaysOn>
+           <bodyName>imu</bodyName>
+           <frameName>imu</frameName>
+           <topicName>imu_test</topicName>
+           <serviceName>imu_service</serviceName>
+           <gaussianNoise>0.01</gaussianNoise>
+           <updateRate>200</updateRate>
+         </plugin>
+       </gazebo>
+
+  </robot>
